@@ -1,6 +1,5 @@
 # node-merge-images
-Merges images.  
-You can optionally set the merging orientation (vertical or horizontal), margins between images, etc.
+Merges images. You can optionally set the merging orientation (vertical or horizontal), margins between images, etc.
 
 Click [here](CHANGELOG.md) to see the change log.
 
@@ -13,7 +12,7 @@ Click [here](CHANGELOG.md) to see the change log.
         - [Parameters](#parameters)
         - [Return value](#return-value)
         - [Throws](#throws)
-    - [Unit testing](#unit-testing)
+    - [Testing](#testing)
     - [Author](#author)
     - [License](#license)
 
@@ -41,48 +40,48 @@ npm install --save node-merge-images
 ### Usage
 - Merge vertically.  
     ```js
-    const mergeImages = require('node-merge-images');
+    const merge = require('node-merge-images');
 
-    await mergeImages(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg');
+    await merge(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg');
     ```
     <img width="500" src="screencaps/vertical-merge.png">
 - Merge horizontally.
     ```js
-    const mergeImages = require('node-merge-images');
+    const merge = require('node-merge-images');
 
-    await mergeImages(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg', {direction: 'horizontal'});
+    await merge(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg', {direction: 'horizontal'});
     ```
     <img width="500" src="screencaps/horizontal-merge.png">
 - Merge vertically with 30px spacing.  
     In the example, the background color is set to #000 with the background option.
     ```js
-    const mergeImages = require('node-merge-images');
+    const merge = require('node-merge-images');
 
-    await mergeImages(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg', {offset: 30, background: '#000'});
+    await merge(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg', {offset: 30, background: '#000'});
     ```
     <img width="500" src="screencaps/vertically-spaced-merges.png">
 - Merge horizontally with 30px spacing.  
     In the example, the background color is set to #000 with the background option.
     ```js
-    const mergeImages = require('node-merge-images');
+    const merge = require('node-merge-images');
 
-    await mergeImages(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg', {direction: 'horizontal', offset: 30, background: '#000'});
+    await merge(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg', {direction: 'horizontal', offset: 30, background: '#000'});
     ```
     <img width="500" src="screencaps/horizontally-spaced-merge.png">
 - Merge images of different sizes vertically.  
     The image width after merging will be adjusted to the image with the maximum width.
     ```js
-    const mergeImages = require('node-merge-images');
+    const merge = require('node-merge-images');
 
-    await mergeImages(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg');
+    await merge(['1.jpg', '2.jpg', '3.jpg'], 'out.jpg');
     ```
     <img width="500" src="screencaps/vertically-merge-of-different-sizes.png">
 - Merge images of different sizes horizontally.  
     The image height after merging will be adjusted to the image with the maximum height.
     ```js
-    const mergeImages = require('node-merge-images');
+    const merge = require('node-merge-images');
 
-    await mergeImages(['1.jpg', '2.jpg', '5.jpg'], 'out.jpg', {direction: 'horizontal', offset: 30});
+    await merge(['1.jpg', '2.jpg', '5.jpg'], 'out.jpg', {direction: 'horizontal', offset: 30});
     ```
     <img width="500" src="screencaps/horizontally-merge-of-different-sizes.png">
 
@@ -109,35 +108,11 @@ npm install --save node-merge-images
 - {TypeError} Input path file not found.
 - {Error} Error executing convert command.
 
-## Unit testing
+## Testing
+With [npm](http://npmjs.org) do:
+
 ```sh
-npm run test
-# > node-merge-images@1.0.0 test
-# > jest
-
-#  PASS  tests/merge-images.test.js
-#   Merge images
-#     ? Should be merged vertically. (17 ms)
-#     ? If the direction option is "vertical", the merge should be vertical. (12 ms)
-#     ? Should merge horizontally. (12 ms)
-#     ? Should merge vertically with 30px spacing. (12 ms)
-#     ? Should merge horizontally with 30px spacing. (12 ms)
-#     ? When vertically merging images of different sizes, the width should be adjusted to the image with the largest width. (13 ms)
-#     ? When horizontally merging images of different sizes, the height should be adjusted to the image with the largest height. (14 ms)
-
-#  PASS  tests/case-of-exception.test.js
-#   Case of exception
-#     ? Should throw an error if the input path is not an Array. (152 ms)
-#     ? Should throw an error if the input path is an empty array. (1 ms)
-#     ? Should throw an error if the output path is empty.
-#     ? Should throw an error if the direction option is not "vertical" or "horizontal". (4 ms)
-#     ? Should throw an error if the offset option is not a number greater than or equal to 0. (1 ms)
-
-# Test Suites: 2 passed, 2 total
-# Tests:       12 passed, 12 total
-# Snapshots:   0 total
-# Time:        1.989 s, estimated 2 s
-# Ran all test suites.
+npm test
 ```
 
 ## Author
