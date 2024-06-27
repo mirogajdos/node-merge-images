@@ -1,6 +1,6 @@
 {
   "name": "node-merge-images",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Merges images.  You can optionally set the merging orientation (vertical or horizontal), margins between images, etc.",
   "main": "dist/build.common.js",
   "module": "dist/build.esm.js",
