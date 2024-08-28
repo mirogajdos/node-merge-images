@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import im from 'imagemagick';
 const fse = require('fs-extra');
-import MergeImagesOptions from '~/interfaces/MergeImagesOptions';
+import type MergeImagesOptions from './interfaces/MergeImagesOptions';
 
 /**
  * Validate parameters.
